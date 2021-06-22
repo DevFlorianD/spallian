@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/article/article.css') }}">
+{% endblock %}
+
+{% block title %}{{ parent() ~ "Articles" }}{% endblock %}
+
+{% block content %}
+    <div class="top-article">
+        <h1>Liste des articles</h1>
+        <a class="btn" href="{{ path('article_new') }}">Ajouter un article</a>
+    </div>
+    <div class="container-articles">
+        {% if articles %}
+            {% for article in articles %}
+                {% include 'article/_card.html.twig' with {
+                    'id': article.id,
+                    'title': article.title,
+                    'subtitle': article.subtitle,
+                    'content': article.content,
+                    'createdAt': article.createdAt,
+                    'author': article.author.email,
+                    'deleted': article.isDeleted
+                } %}
+            {% endfor %}
+        {% else %}
+            <p class="no-articles">
+                Il n'y a pas d'articles pour le moment ! <br>
+                Revenez plus tard !
+            </p>
+        {%  endif %}
+    </div>
+
+{#    <h1>Article index</h1>#}
+
+{#    <table class="table">#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <th>Id</th>#}
+{#            <th>Title</th>#}
+{#            <th>Subtitle</th>#}
+{#            <th>Content</th>#}
+{#            <th>CreatedAt</th>#}
+{#            <th>UpdateAt</th>#}
+{#            <th>DeletedAt</th>#}
+{#            <th>IsDeleted</th>#}
+{#            <th>actions</th>#}
+{#        </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        {% for article in articles %}#}
+{#            <tr>#}
+{#                <td>{{ article.id }}</td>#}
+{#                <td>{{ article.title }}</td>#}
+{#                <td>{{ article.subtitle }}</td>#}
+{#                <td>{{ article.content }}</td>#}
+{#                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>{{ article.updateAt ? article.updateAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>{{ article.deletedAt ? article.deletedAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>{{ article.isDeleted ? 'Yes' : 'No' }}</td>#}
+{#                <td>#}
+{#                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>#}
+{#                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>#}
+{#                </td>#}
+{#            </tr>#}
+{#        {% else %}#}
+{#            <tr>#}
+{#                <td colspan="9">no records found</td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#        </tbody>#}
+{#    </table>#}
+
+{#    <a href="{{ path('article_new') }}">Create new</a>#}
+{% endblock %}
+

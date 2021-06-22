@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/article/article-show.css') }}">
+{% endblock %}
+
+
+{% block title %}{{ parent() ~ "Article" }}{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>{{ article.title }}</h1>
+        <h3 class="subtitle">{{ article.subtitle }}</h3>
+    </div>
+
+    <div class="container-article">
+        {{ article.content }}
+    </div>
+
+    <div class="article-info">
+        Fait le {{ article.createdAt | date("d/m/Y", "Europe/Paris") }}<br>
+        Par : <span>{{ article.author.email }}</span>
+    </div>
+
+    <div class="actions">
+        <a class="btn btn-action" href="{{ path('article_edit', {'id': article.id}) }}">Éditer</a>
+    </div>
+{% endblock %}

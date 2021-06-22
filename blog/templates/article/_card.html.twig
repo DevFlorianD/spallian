@@ -1,0 +1,22 @@
+<div class="article-card {% if deleted %}deleted{% endif %}">
+    <div class="article-card-top">
+        <div>
+            <span><b>{{ title }}</b></span>
+            <span class="created-at">- Le {{ createdAt | date("d/m/Y", "Europe/Paris") }} - </span>
+            <span class="author">{{ author }}</span>
+        </div>
+        <div class="actions">
+            <a class="btn btn-action" href="{{ path('article_show', {'id': id}) }}">Voir</a>
+            <a class="btn btn-action" href="{{ path('article_edit', {'id': id}) }}">Éditer</a>
+            {% if constant('App\\Entity\\User::ROLE_ADMIN')[0] in app.user.roles %}
+                {{ include('article/_delete_form.html.twig') }}
+            {% endif %}
+        </div>
+    </div>
+    <div class="article-card-subtitle">
+        {{ subtitle }}
+    </div>
+    <div class="article-card-content">
+        {{ content | length > 500 ? content | slice(0, 500) ~ '...' : content }}
+    </div>
+</div>

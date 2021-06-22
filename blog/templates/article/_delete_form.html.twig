@@ -1,0 +1,8 @@
+<form method="post" action="{{ path('article_delete', {'id': article.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
+    {% if article.isDeleted %}
+        <button class="btn btn-action">Rouvrir</button>
+    {% else %}
+        <button class="btn btn-action">Supprimer</button>
+    {% endif %}
+</form>

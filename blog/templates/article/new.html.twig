@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/article/article-form.css') }}">
+{% endblock %}
+
+{% block title %}{{ parent() ~ "Nouvelle Article" }}{% endblock %}
+
+{% block content %}
+    <div class="top-article-new">
+        <h1>Ajouter un article</h1>
+        <a class="btn" href="{{ path('articles') }}">Retour aux articles</a>
+    </div>
+    {{ include('article/_form.html.twig') }}
+
+{% endblock %}

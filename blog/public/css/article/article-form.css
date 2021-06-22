@@ -1,0 +1,49 @@
+.top-article-new {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: var(--color-primary-blue);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.save {
+    width: fit-content;
+    width: -moz-fit-content;
+    margin: 20px;
+}
+
+.input-group {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-group label {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--color-primary-blue);
+}
+
+.input-group input, .input-group textarea {
+    padding: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    outline-color: var(--color-primary-pink);
+    color: var(--color-primary-blue);
+    font-family: Roboto, 'sans-serif';
+}
+
+.input-group textarea {
+    height: 250px;
+}

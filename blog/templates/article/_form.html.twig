@@ -1,0 +1,15 @@
+{{ form_start(form) }}
+<div class="input-group">
+    {{ form_label(form.title) }}
+    {{ form_widget(form.title) }}
+</div>
+<div class="input-group">
+    {{ form_label(form.subtitle) }}
+    {{ form_widget(form.subtitle) }}
+</div>
+<div class="input-group">
+    {{ form_label(form.content) }}
+    {{ form_widget(form.content) }}
+</div>
+<button class="btn save">{{ button_label | default('Ajouter') }}</button>
+{{ form_end(form) }}

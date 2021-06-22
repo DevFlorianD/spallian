@@ -1,0 +1,19 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{  asset("css/header.css") }}">
+{% endblock %}
+
+<header>
+    <a id="logo" href="{{ path('articles') }}">Spallian Blog</a>
+    <nav>
+        <ul>
+            <li><a href="{{ path('articles') }}">Articles</a></li>
+            <li>A propos</li>
+        </ul>
+        {% if app.user %}
+            <a id="logout" href={{ path("logout") }}>
+                Déconnexion
+            </a>
+        {% endif %}
+    </nav>
+
+</header>

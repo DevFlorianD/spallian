@@ -1,0 +1,19 @@
+doctrine:
+    dbal:
+        override_url: true
+        user: '%env(resolve:DATABASE_USER)%'
+        password: '%env(resolve:DATABASE_PASSWORD)%'
+        host: '%env(resolve:DATABASE_HOST)%'
+        dbname: '%env(resolve:DATABASE_NAME)%'
+        port: '%env(resolve:DATABASE_PORT)%'
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'App\Entity'
+                alias: App
