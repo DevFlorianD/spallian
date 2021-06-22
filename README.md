@@ -1,3 +1,7 @@
+# À savoir
+
+Pour lancer les tests unitaires, rentrer dans le container app, puis changer de dossier -> blog, et enfin la commande : ./vendor/bin/phpunit
+
 # Technical test
 
 ## Context
